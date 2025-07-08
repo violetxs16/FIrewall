@@ -12,22 +12,6 @@ The primary objective is to create an intelligent network firewall that:
 - **Blocks unwanted traffic** (ICMP, UDP, and other non-TCP protocols)
 - **Optimizes network performance** by installing persistent flow rules
 
-## Project Structure
-
-```
-firewall-project/
-├── controller.py            # Main SDN controller implementation
-└── README.md               # This file
-```
-
-## Code Implementation
-
-### `controller.py`
-The main controller implementation featuring:
-- Pre-provided firewall class structure
-- Custom `do_firewall()` method implementation
-- Flow table management for different packet types
-
 ## Technical Implementation
 
 ### Firewall Logic (`do_firewall()` method)
