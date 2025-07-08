@@ -67,7 +67,7 @@ elif packet.find('ipv4'):
 ## Expected Behavior and Validation
 
 ### Connectivity Test (`pingall`)
-- **Expected Result**: ❌ Fail
+- **Expected Result**: Fail
 - **Reason**: ICMP packets (used by ping) are IPv4 but not TCP, so they are dropped by the firewall
 - **Validates**: Non-TCP blocking functionality
 
@@ -78,7 +78,7 @@ elif packet.find('ipv4'):
 - **Validates**: Proper flow rule installation
 
 ### TCP Performance Test (`iperf`)
-- **Expected Result**: ✅ Succeed
+- **Expected Result**: Succeed
 - **Reason**: TCP traffic is allowed through the firewall, enabling successful data transfer
 - **Validates**: TCP traffic allowance functionality
 
@@ -86,10 +86,10 @@ elif packet.find('ipv4'):
 
 | Traffic Type | Action | Reason |
 |-------------|---------|---------|
-| ARP | ✅ ALLOW (Flood) | Essential for network discovery |
-| TCP | ✅ ALLOW (Flood) | Application traffic (HTTP, SSH, etc.) |
-| UDP | ❌ BLOCK (Drop) | Potentially unwanted traffic |
-| ICMP | ❌ BLOCK (Drop) | Diagnostic traffic (ping, traceroute) |
+| ARP | ALLOW (Flood) | Essential for network discovery |
+| TCP | ALLOW (Flood) | Application traffic (HTTP, SSH, etc.) |
+| UDP | BLOCK (Drop) | Potentially unwanted traffic |
+| ICMP | BLOCK (Drop) | Diagnostic traffic (ping, traceroute) |
 
 ## Key Features
 
@@ -125,16 +125,7 @@ elif packet.find('ipv4'):
    # Test TCP traffic (should succeed)
    iperf
    ```
-
-## Learning Outcomes
-
-This project demonstrates:
-- SDN controller programming
-- OpenFlow protocol usage
-- Network security policy implementation
-- Flow table management
-- Packet parsing and classification
-
+   
 ## Future Enhancements
 
 - Add support for UDP whitelisting
